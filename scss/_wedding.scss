@@ -1,0 +1,38 @@
+/**
+ * Section background image.
+ */
+#about-the-wedding:after {
+  background-image: url('../images/wood.jpg');
+}
+
+/**
+ * Specific content decoration.
+ */
+#about-the-wedding .section-content {
+  background-color: rgba(25, 25, 112, 0.75);
+  border: 0.75em solid #fff;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Indie Flower', cursive;
+}
+
+/**
+ * Fancy text header.
+ */
+#about-the-wedding h2 {
+  font-family: 'Alex Brush', cursive;
+}
+
+/**
+ * List styling.
+ */
+#about-the-wedding ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#about-the-wedding li {
+  padding: 0.1em 0;
+  margin: 0;
+}

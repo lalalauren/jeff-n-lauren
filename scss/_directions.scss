@@ -1,0 +1,36 @@
+/**
+ * Section background image.
+ */
+#directions:after {
+      background-image: url('../images/grass.jpg');
+}
+
+#map-and-directions h2 {
+  padding: 0;
+  margin: 0;
+}
+#venue-map {
+  height: 60%;
+  width: 75%;
+  background-color: #fff;
+  border: 3px double #1947A3;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.map-bar {
+  background-color: #1947A3;
+  width:85%;
+  margin:0 auto;
+  padding: 0 auto;
+}
+#venue-directions ul {
+  padding-top:0;
+  margin-top: 0;
+  list-style-type: none;
+}
+#venue-directions li {
+  display: inline;
+  padding: 0 1em;
+}

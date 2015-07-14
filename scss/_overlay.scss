@@ -1,0 +1,85 @@
+#overlay {
+  position : fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity : 0.85;
+  z-index : 999;
+}
+
+/*
+ * Style the content of the polaroid in full page view.
+ */
+.overlay-content {
+  position: fixed;
+  z-index: 1000;
+}
+
+/*
+ * Style the close button of the overlay in full page view.
+ */
+#overlay-close {
+  position: fixed;
+  top: 0.05em;
+  right: 0.1em;
+  z-index: 1000;
+  font-family: 'Coming Soon', cursive;
+  font-weight: bolder;
+  color: #fff;
+  font-size: 2em;
+}
+#overlay-close a {
+  color: #fff;
+  text-decoration: none;
+}
+#overlay-close a:hover {
+  color: yellow;
+}
+
+
+/*
+ * Style the slideshow-specific overlay.
+ */
+#overlay-content-slideshow img {
+  border: 8px solid #fff;
+  margin: 8px;
+}
+
+/*
+ * Specific slideshow navigation
+ */
+.slideshow-nav {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  font-size: 5em;
+  cursor: pointer;
+}
+#slideshow-nav-left {
+  left: 0;
+}
+#slideshow-nav-right {
+  right: 0;
+}
+
+/*
+ * Style the RSVP-specific overlay.
+ */
+#overlay-content-rsvp {
+  height: 30%;
+  width: 30%;
+  top: 30%;
+  left: 30%;
+  background-color: #ccc;
+  border: 1em solid #fff;
+  border-radius: 1em;
+  padding: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.25em;
+}

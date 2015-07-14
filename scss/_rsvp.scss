@@ -1,0 +1,132 @@
+/**
+ * Vars for RSVP.
+ */
+$degreesText: -15deg;
+$degreesArrow: -30deg;
+$degreesInput: 3deg;
+
+/**
+ * Section background image.
+ */
+#rsvp:after {
+  background-image: url('../images/wood2.jpg');
+}
+
+/**
+ * Specific content decoration.
+ */
+#rsvp .section-content {
+  background-color: rgba(25, 25, 112, 0.9);
+  font-family: 'Indie Flower', cursive;
+  width: 500px;
+  min-width: 300px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Controls the RSVP text.
+ */
+#rsvp h2 {
+  text-align: left;
+  color: #A6D5FA;
+  font-family: 'Alex Brush', cursive;
+  letter-spacing: -0.1em;
+  -ms-transform: rotate($degreesText); /* IE 9 */
+  -webkit-transform: rotate($degreesText); /* Chrome, Safari, Opera */
+  transform: rotate($degreesText);
+  width: 200px;
+  height: 50px;
+}
+#rsvp h2 #letter-S, #rsvp h2 #letter-P {
+  position: relative;
+  top: 0.3em;
+  left: -0.2em;
+  color: #7AC0F8;
+}
+
+/**
+ * Controls the RSVP image.
+ */
+#rsvp .section-content img {
+  float: left;
+  padding-left: 75px;
+  width: 64px;
+  height: 64px;
+  -ms-transform: rotate($degreesArrow); /* IE 9 */
+  -webkit-transform: rotate($degreesArrow); /* Chrome, Safari, Opera */
+  transform: rotate($degreesArrow);
+}
+
+/**
+ * Controls the timestamp look & feel.
+ */
+.rsvp-timestamp {
+  display: none;
+  color: #fff;
+  padding-left: 0.5em;
+  font-family: 'Dosis', sans-serif;
+  font-size: 0.75em;
+}
+.rsvp-date, .rsvp-time {
+  color: #A6D5FA;
+  font-size: 0.75em;
+}
+
+/**
+ * Controls the formatting of the registered and unregistered guest names.
+ */
+#rsvp a.registered-guest {
+  color: #7AC0F8;
+  text-decoration: none;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+/**
+ * Controls the RSVP text boxes.
+ */
+#rsvp .rsvp-input {
+  width: 350px;
+  height: 50px;
+  float: right;
+  margin-top: -50px;
+  //-ms-transform: rotate($degreesInput); /* IE 9 */
+  //-webkit-transform: rotate($degreesInput); /* Chrome, Safari, Opera */
+  //transform: rotate($degreesInput);
+  font-size: 1.5em;
+  font-family: 'Indie Flower', cursive;
+}
+#rsvp #rsvp-input-submit {
+  display: none;
+}
+
+/**
+ * Controls the autocomplete styling.
+ */
+ul.ui-autocomplete {
+  //-ms-transform: rotate($degreesInput); /* IE 9 */
+  //-webkit-transform: rotate($degreesInput); /* Chrome, Safari, Opera */
+  //transform: rotate($degreesInput);
+}
+ul.ui-autocomplete li {
+  color: #1947A3;
+  font-family: 'Indie Flower', cursive;
+}
+ul.ui-autocomplete li.ui-state-focus {
+  font-weight: bold;
+}
+
+/**
+ * Controls the RSVP buttons in the pop up.
+ */
+.rsvp-button {
+  color: #fff;
+  display: inline-block;
+  background-color: rgba(25, 25, 112, 0.7);
+  border: 2px solid #fff;
+  border-radius: 10px;
+  width: 4em;
+  margin: 1em 0.75em 0em 0.75em;
+}
