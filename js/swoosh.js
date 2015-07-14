@@ -1,27 +1,5 @@
 $(function() {
 
-  /**
-   * Gets a random opacity level.
-   * 
-   * @returns {Number}
-   *   Opacity level.
-   */
-  function getOpacity() {
-    return (Math.floor(Math.random() * 50) + 10) / 100;
-  }
-
-  /**
-   * Get a random color from a set of approved colors.
-   * 
-   * @returns {String}
-   *   Hex color.
-   */
-  function getColor() {
-    var shades = ["D1", "D6", "E0", "E6", "EB", "F0", "F5", "FA", "FF", // More white/light yellow
-      "99", "A3", "AD", "B8", "C2", "CC", "D6", "E0", "EB", "F5"]; // More yellow
-    return "#FFFF" + shades[Math.floor(Math.random() * shades.length)];
-  }
-
   // All of this was handcrafted based roughly on a px width of 1030, so to
   // make it more dynamic, an offset needs to be used.
   var offset = window.innerWidth - 1030;
@@ -45,7 +23,7 @@ $(function() {
       arcs[i].remove();
     }
   }
-  
+
   /** Updates arcs. **/
   function updateArcs() {
     removeArcs();
@@ -170,9 +148,9 @@ $(function() {
         // Remove default SVG outline.
         circles[i][j].attr("stroke", "none");
         // Set a random color.
-        circles[i][j].attr("fill", getColor());
+        circles[i][j].attr("fill", window.getColor());
         // Set a random opacity.
-        circles[i][j].attr("opacity", getOpacity());
+        circles[i][j].attr("opacity", window.getOpacity());
       }
     }
   }
