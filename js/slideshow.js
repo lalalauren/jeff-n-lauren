@@ -1,9 +1,6 @@
 $(function() {
-  // Show the first slide.
-  $('ul#venue-gallery li').first().attr('class', 'active');
-  $('ul#venue-gallery li').first().show();
 
-  // Increase the side of the image when clicked on.
+  // Increase the size of the image when clicked on.
   $('ul#venue-gallery li').click(function() {
     // Append the overlay to make the content stand out.
     $('body').append('<div id="overlay"></div>');

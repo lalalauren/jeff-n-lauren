@@ -19,15 +19,25 @@
 }
 
 /**
+ * Control the text in the slides.
+ */
+.slide {
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+/**
  * Controls the links.
  */
-.section-content a {
+.slide a {
   color: yellow;
   text-decoration: none;
   text-shadow: 2px 2px 2px #ccc;
   font-weight: bold;
 }
-.section-content a:hover {
+.slide a:hover {
   color: #EEE8CD;
 }
 
