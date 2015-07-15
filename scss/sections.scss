@@ -11,8 +11,11 @@
 .slide {
   background-color: rgba(255, 255, 230, 0.1);
   margin: 0 3em;
-  padding: 2%;
+  padding: 2em 3em;
   position: relative;
+}
+.slick-slide {
+  height: inherit;
 }
 
 /**

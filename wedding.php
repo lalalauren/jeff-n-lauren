@@ -5,19 +5,48 @@ if (empty($access)) {
   die();
 }
 ?>
-<div id="about-the-wedding" class="section">
-  <div class="section-content">
-    <h2>Our Ceremony & Reception</h2>
-    <ul>
-      <li>Prelude</li>
-      <li>Processional</li>
-      <li>Exchange of Vows</li>
-      <li>Exchange of Rings</li>
-      <li>The Kiss</li>
-      <li>Presentation of Couple</li>
-      <li>Recessional</li>
-      <li>Cocktail Hour & Pictures</li>
-      <li>Dinner, Drinks, & Dancing</li>
-    </ul>
-  </div>
-</div>
+
+<h2>Our Ceremony & Reception</h2>
+
+<table>
+  <tr>
+    <td>4:45pm</td>
+    <td>Last Shuttle Departs Hotel</td>
+  </tr>
+  <tr>
+    <td>5pm</td>
+    <td>Prelude</td>
+  </tr>
+  <tr>
+    <td>5:30pm</td>
+    <td>
+      Processional
+      <br/>
+      Exchange of Vows
+      <br/>
+      Exchange of Rings
+      <br/>
+      The Kiss
+      <br/>
+      Presentation of Couple
+      <br/>
+      Recessional
+    </td>
+  </tr>
+  <tr>
+    <td>6pm</td>
+    <td>Cocktail Hour</td>
+  </tr>
+  <tr>
+    <td>7pm</td>
+    <td>Dinner, Drinks, & Dancing</td>
+  </tr>
+  <tr>
+    <td>9pm</td>
+    <td>Shuttle to Hotel Begins</td>
+  </tr>
+  <tr>
+    <td>10pm</td>
+    <td>Last Dance</td>
+  </tr>
+</table>

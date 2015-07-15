@@ -1,27 +1,12 @@
 /**
- * Section background image.
- */
-#about-the-wedding:after {
-  background-image: url('../images/wood.jpg');
-}
-
-/**
- * Specific content decoration.
- */
-#about-the-wedding .section-content {
-  background-color: rgba(25, 25, 112, 0.75);
-  border: 0.75em solid #fff;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: 'Indie Flower', cursive;
-}
-
-/**
  * Fancy text header.
  */
 #about-the-wedding h2 {
   font-family: 'Alex Brush', cursive;
+  color: rgb(255, 255, 163);
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 /**
@@ -31,8 +16,36 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: rgba(25, 25, 112, 0.75);
+  border: 0.75em solid #fff;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Indie Flower', cursive;
 }
 #about-the-wedding li {
   padding: 0.1em 0;
   margin: 0;
+}
+
+/**
+ * Font styling of table.
+ */
+#about-the-wedding table {
+  border-spacing: 1em;
+  border-collapse: separate;
+}
+#about-the-wedding td {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.25em;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 0.25em 0.5em;
+  vertical-align: top;
+}
+
+/**
+ * Style the times.
+ */
+#about-the-wedding tr td:last-child {
+  width: 100%;
 }
