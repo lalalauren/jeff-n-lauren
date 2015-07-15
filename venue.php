@@ -27,4 +27,3 @@ if (empty($access)) {
 
   </div>
 </div>
-</div>
