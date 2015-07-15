@@ -1,7 +1,10 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #000066;
+  background-image: url('../images/navy.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 @import '_clearfix.scss';
