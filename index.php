@@ -2,10 +2,18 @@
 <html>
   <head>
     <title>Jeff & Lauren</title>
-    
+
     <!--Stylesheets-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <?php foreach (glob('css/*.css') as $sheet): ?>
+    <?php
+    $external_css = array(
+        '//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css',
+        '//cdn.jsdelivr.net/jquery.slick/1.5.6/slick.css',
+        '//cdn.jsdelivr.net/jquery.slick/1.5.6/slick-theme.css',
+    );
+    $internal_css = glob('css/*.css');
+    $css = array_merge($external_css, $internal_css);
+    ?>
+    <?php foreach ($css as $sheet): ?>
       <link rel='stylesheet' type='text/css' href='<?php echo $sheet; ?>'>
     <?php endforeach; ?>
 
@@ -28,24 +36,42 @@
     <?php foreach ($scripts as $script): ?>
       <script src='<?php echo $script; ?>' type='text/javascript'></script>
     <?php endforeach; ?>
-    
-    <?php
-    // Libraries
-    foreach (glob('utils/*.php') as $util) {
-      include_once $util;
-    }
-    ?>
-
   </head>
+
+  <?php
+  // Libraries
+  foreach (glob('utils/*.php') as $util) {
+    include_once $util;
+  }
+  ?>
+
   <body>
     <!--Header-->
     <?php include 'header.php'; ?>
 
     <!--Content-->
-    <?php include 'wedding.php'; ?>
-    <?php include 'venue.php'; ?>
-    <?php include 'directions.php'; ?>
-    <?php include 'rsvp.php'; ?>
-    
+    <div id="section-slides">
+
+      <div class="slide">
+        <?php include 'wedding.php'; ?>
+      </div>
+
+      <div class="slide">
+        <?php include 'venue.php'; ?>
+      </div>
+
+      <div class="slide">
+        <?php include 'directions.php'; ?>
+      </div>
+
+      <div class="slide">
+        <?php include 'rsvp.php'; ?>
+      </div>
+
+    </div>
+
+    <!-- Slick Library -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.6/slick.min.js"></script>
+
   </body>
 </html>

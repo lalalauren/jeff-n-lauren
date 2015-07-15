@@ -11,9 +11,9 @@
       <div class="clearfix"></div>
     </div>
     <div id="navigation">
-      <a href="#about-the-wedding">Our Ceremony & Reception</a>
-      <a href="#about-the-venue">About the Venue</a>
-      <a href="#directions">Directions</a>
+      <a>Our Ceremony & Reception</a>
+      <a>About the Venue</a>
+      <a>Directions</a>
     </div>
   </div>
 </div>
