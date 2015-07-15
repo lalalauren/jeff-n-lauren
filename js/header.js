@@ -1,12 +1,10 @@
 $(function() {
-  var initialPos = $('#menu').offset().top;
-
+  
   $(window).scroll(function()
   {
     var scrolled = $(window).scrollTop();
 
-
-    if (scrolled > initialPos) {
+    if (scrolled > 200) {
       $('#menu').css({
         position: "fixed",
         top: '0'
@@ -14,10 +12,8 @@ $(function() {
       $('#little-menu').show();
       $('#navigation').hide();
     } else {
-
       $('#menu').css({
-        position: "absolute",
-        top: initialPos + "px"
+        position: "relative",
       });
       $('#little-menu').hide();
       $('#navigation').show();
