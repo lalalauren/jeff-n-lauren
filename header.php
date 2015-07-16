@@ -12,8 +12,8 @@
     <div class="clearfix"></div>
   </div>
   <div id="navigation">
-    <a>Our Ceremony & Reception</a>
-    <a>About the Venue</a>
-    <a>Directions</a>
+    <?php foreach ($pages as $link_key => $link_text): ?>
+      <a name="<?php echo $link_key; ?>"><?php echo $link_text; ?></a>
+    <?php endforeach; ?>
   </div>
 </div>

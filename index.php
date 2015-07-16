@@ -45,6 +45,16 @@
   }
   ?>
 
+  <?php
+  // Define the pages that we will use.
+  $pages = array(
+    'about-the-wedding' => 'About the Ceremony & Reception',
+    'about-the-venue' => 'About the Venue',
+    'directions' => 'Directions',
+    'hotel' => 'Hotels & Accomodations',
+  );
+  ?>
+
   <body>
     <!--Header-->
     <?php include 'header.php'; ?>
@@ -52,21 +62,11 @@
     <!--Content-->
     <div id="section-slides">
 
-      <div class="slide" id="about-the-wedding">
-        <?php include 'wedding.php'; ?>
-      </div>
-
-      <div class="slide" id="about-the-venue">
-        <?php include 'venue.php'; ?>
-      </div>
-
-      <div class="slide" id="directions">
-        <?php include 'directions.php'; ?>
-      </div>
-
-      <div class="slide">
-        <?php include 'rsvp.php'; ?>
-      </div>
+      <?php foreach ($pages as $page_key => $page_name): ?>
+        <div class="slide" id="<?php echo $page_key; ?>">
+          <?php include $page_key . '.php'; ?>
+        </div>
+      <?php endforeach; ?>
 
     </div>
 
