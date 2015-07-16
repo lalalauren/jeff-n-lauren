@@ -1,4 +1,9 @@
 $(function () {
+  
+  // On load, set the first page to be active.
+  $('#navigation a').eq(0).addClass('active-link');
+  
+  // Upon clicking an item in the navigation...
   $('#navigation a').click(function () {
     
     // Remove existing active styling.
