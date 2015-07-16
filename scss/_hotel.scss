@@ -26,6 +26,7 @@
   margin: 0;
   vertical-align: middle;
   display: inline-block;
+  min-height: 135px;
 }
 #hotel-block-info {
   width: -moz-calc(100% - 200px);
@@ -57,11 +58,6 @@
  */
 #hotel .date {
   color: #09f;
-}
-
-#hotel-block-info {
-  //background-color: #09f;
-
 }
 
 /**
