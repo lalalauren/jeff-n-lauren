@@ -1,7 +1,38 @@
 /**
- * Image.
+ * Main picture of the house.
  */
-#about-the-venue img {
+#top-image {
+  position: relative;
+  width: 100%;
+  float: left;
+  margin-bottom: 1em;
+}
+
+/**
+ * Make a pretty inset to the image.
+ **/
+#top-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 1em rgba(0,0,0,1);
+  -moz-box-shadow: inset 0 0 1em rgba(0,0,0,1);
+  -webkit-box-shadow: inset 0 0 1em rgba(0,0,0,1);
+} 
+
+#top-image img {
+  float: left;
+  width: 100%;
+}
+
+
+/**
+ * Thumbnail in the gallery.
+ */
+#venue-gallery img {
   margin: 0;
   border-radius: 15px;
   border: 2px solid white;
@@ -10,10 +41,10 @@
 }
 
 /**
- * Image styles.
+ * Gallery list styles.
  */
-ul#venue-gallery ul {
-  display: inline-block;
+ul#venue-gallery {
+  display: hidden;
 }
 ul#venue-gallery li {
   display: inline-block;

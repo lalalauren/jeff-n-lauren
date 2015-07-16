@@ -5,6 +5,11 @@ if (empty($access)) {
   die();
 }
 ?>
+
+<div id="top-image">
+  <img src="images/house.jpeg"/>
+</div>
+
 <p>
   Our venue is a historic home called The Retreat that is being 
   <a href="http://luckettstore.com/retreat-at-cool-spring-history/">lovingly restored</a>
@@ -19,8 +24,9 @@ if (empty($access)) {
   The nearby area has a lake and 3 waterfalls and beautiful walking trails.
 </p>
 
+<div id="venue-gallery-toggle">&#9660; See More Pictures &#9660;</div>
 <ul id="venue-gallery">
   <?php foreach (glob('gallery/venue/*') as $i => $pic): ?>
-    <li><a name="pic<?php echo $i; ?>"></a><img src="<?php echo $pic; ?>"></li>
+  <li><a name="pic<?php echo $i; ?>"><span id="<?php echo $pic; ?>"></span></a></li>
   <?php endforeach; ?>
 </ul>

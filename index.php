@@ -52,15 +52,15 @@
     <!--Content-->
     <div id="section-slides">
 
-      <div class="slide">
+      <div class="slide" id="about-the-wedding">
         <?php include 'wedding.php'; ?>
       </div>
 
-      <div class="slide">
+      <div class="slide" id="about-the-venue">
         <?php include 'venue.php'; ?>
       </div>
 
-      <div class="slide">
+      <div class="slide" id="directions">
         <?php include 'directions.php'; ?>
       </div>
 

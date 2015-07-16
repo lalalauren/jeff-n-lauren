@@ -14,6 +14,10 @@
   padding: 2em 3em;
   position: relative;
 }
+
+/**
+ * Overide the slick height setting so they can be different lengths.
+ */
 .slick-slide {
   height: inherit;
 }

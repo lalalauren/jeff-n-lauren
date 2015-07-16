@@ -1,4 +1,37 @@
 $(function() {
+  // On load, hide the gallery.
+  $('#venue-gallery').hide();
+  
+  // Do not load the images until clicked.
+  $('#venue-gallery-toggle').click(function() {
+
+    // If the list is currently not displayed...
+    if (!$('#venue-gallery').is(':visible')) {
+      
+      // Show it.
+      $('#venue-gallery').slideDown(600);
+      
+      // Change the text here.
+      $(this).html("&#9650; See Less Pictures &#9650;");
+      
+      // Check to see if the images have been loaded.
+      if ($('#venue-gallery li span').length) {
+        $('#venue-gallery li span').each(function() {
+          $(this).replaceWith(
+                  '<img src="' + $(this).attr('id') + '"/>'
+                  );
+        });
+      }
+    }
+    // If the list currently is displayed...
+    else {
+      // Hide it.
+      $('#venue-gallery').slideUp(600);
+      
+      // Change the text.
+      $(this).html('&#9660; Show More Pictures &#9660;');
+    }
+  });
 
   // Increase the size of the image when clicked on.
   $('ul#venue-gallery li').click(function() {
@@ -51,9 +84,9 @@ $(function() {
         slideshowHandler(wrap);
       }
     });
-    
+
     // Define the right arrow.
-        // Define the left arrow.
+    // Define the left arrow.
     var right = $('<span class="slideshow-nav" id="slideshow-nav-right">&rarr;</span>');
     right.click(function() {
       // Remove the current image.
@@ -76,7 +109,7 @@ $(function() {
         slideshowHandler(wrap);
       }
     });
-    
+
     // Add the arrows.
     $('#overlay').prepend(left);
     $('#overlay').append(right);
