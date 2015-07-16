@@ -52,6 +52,7 @@
     'about-the-venue' => 'About the Venue',
     'directions' => 'Directions',
     'hotel' => 'Hotels & Accomodations',
+    'shuttle' => 'Shuttle Service',
   );
   ?>
 
