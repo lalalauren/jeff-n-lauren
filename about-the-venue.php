@@ -27,6 +27,6 @@ if (empty($access)) {
 <div id="venue-gallery-toggle">&#9660; See More Pictures &#9660;</div>
 <ul id="venue-gallery">
   <?php foreach (glob('gallery/venue/*') as $i => $pic): ?>
-  <li><a name="pic<?php echo $i; ?>"><span id="<?php echo $pic; ?>"></span></a></li>
+  <li><span id="<?php echo $pic; ?>"></span></li>
   <?php endforeach; ?>
 </ul>
