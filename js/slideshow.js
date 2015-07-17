@@ -1,25 +1,26 @@
 $(function() {
   // On load, hide the gallery.
   $('#venue-gallery').hide();
-  
+
   // Do not load the images until clicked.
   $('#venue-gallery-toggle').click(function() {
 
     // If the list is currently not displayed...
     if (!$('#venue-gallery').is(':visible')) {
-      
+
       // Show it.
       $('#venue-gallery').slideDown(600);
-      
+
       // Change the text here.
       $(this).html("&#9650; See Less Pictures &#9650;");
-      
+
       // Check to see if the images have been loaded.
       if ($('#venue-gallery li span').length) {
-        $('#venue-gallery li span').each(function() {
-          $(this).replaceWith(
-                  '<img src="' + $(this).attr('id') + '"/>'
-                  );
+        $('#venue-gallery li').each(function() {
+          var span = $(this).children('span');
+          $('<img src="' + span.attr('id') + '"/>').load(function() {
+            span.replaceWith($(this));
+          });
         });
       }
     }
@@ -27,7 +28,7 @@ $(function() {
     else {
       // Hide it.
       $('#venue-gallery').slideUp(600);
-      
+
       // Change the text.
       $(this).html('&#9660; Show More Pictures &#9660;');
     }
@@ -57,13 +58,48 @@ $(function() {
    *   Jquery li tag object.
    */
   function slideshowHandler(li) {
-    // Get the image src.
-    var src = li.children('img').attr('src');
-
-    // Attach the content.
+    // Attach the content wrapper.
     $('body').append('<div class="overlay-content" id="overlay-content-slideshow">'
-            + '<img src="' + src + '"/>'
-            + '</div></div>');
+            + '</div>');
+    
+    // Once the image is loaded...
+    li.children('img').clone().load(function() {
+      
+      // Attach the image to its wrapper.
+      $(this).appendTo('#overlay-content-slideshow');
+      
+      // Grab the current width & height of the #content.
+      var height = $('#overlay-content-slideshow img').height() + 16,
+              width = $('#overlay-content-slideshow img').width() + 16,
+              overage = 1;
+              
+      // If the image height is bigger than the window, shrink the image.
+      if (height > window.innerHeight) {
+        overage = window.innerHeight / height;
+        height = window.innerHeight;
+        width = width * overage;
+      }
+      // If the image width is bigger than the window, shrink the image.
+      if (width > window.innerWidth) {
+        overage = window.innerWidth / width;
+        width = window.innerWidth;
+        height = height * overage;
+      }
+      
+      // Adjust the size of the wrapper.
+      $("#overlay-content-slideshow").css({
+        'top': (window.innerHeight - height) / 2 + 'px',
+        'left': (window.innerWidth - width) / 2 + 'px'
+      });
+      
+      // Adjust the size of the image.
+      $("#overlay-content-slideshow img").css({
+        //  'top': (window.innerHeight - height) / 2 + 'px',
+        //'left': (window.innerWidth - width) / 2 + 'px',
+        'height': height - 32,
+        'width': width - 32
+      });
+    });
 
     // Define the left arrow.
     var left = $('<span class="slideshow-nav" id="slideshow-nav-left">&larr;</span>');
@@ -116,38 +152,6 @@ $(function() {
 
     // Define a closing div and set it up to work.
     $('#overlay').append(window.overlayClose);
-
-    // Grab the current width & height of the #content.
-    var height = $('#overlay-content-slideshow img').height() + 16,
-            width = $('#overlay-content-slideshow img').width() + 16,
-            overage = 1;
-
-    console.log("original: " + height + " x " + width);
-    console.log("window: " + window.innerHeight + " x " + window.innerWidth);
-
-    if (height > window.innerHeight) {
-      overage = window.innerHeight / height;
-      height = window.innerHeight;
-      width = width * overage;
-    }
-    if (width > window.innerWidth) {
-      overage = window.innerWidth / width;
-      width = window.innerWidth;
-      height = height * overage;
-    }
-    console.log("reduced: " + height + " x " + width);
-
-
-    $("#overlay-content-slideshow").css({
-      'top': (window.innerHeight - height) / 2 + 'px',
-      'left': (window.innerWidth - width) / 2 + 'px',
-    });
-    $("#overlay-content-slideshow img").css({
-      //  'top': (window.innerHeight - height) / 2 + 'px',
-      //'left': (window.innerWidth - width) / 2 + 'px',
-      'height': height - 32,
-      'width': width - 32
-    });
 
   }
 });
