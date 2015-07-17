@@ -48,11 +48,12 @@
   <?php
   // Define the pages that we will use.
   $pages = array(
-    'about-the-wedding' => 'About the Ceremony & Reception',
-    'about-the-venue' => 'About the Venue',
-    'directions' => 'Directions',
-    'hotel' => 'Hotels & Accomodations',
-    'shuttle' => 'Shuttle Service',
+      'about-the-wedding' => 'About the Ceremony & Reception',
+      'about-the-venue' => 'About the Venue',
+      'directions' => 'Directions',
+      'hotel' => 'Hotels & Accomodations',
+      'shuttle' => 'Shuttle Service',
+      'registry' => 'Our Registry',
   );
   ?>
 
