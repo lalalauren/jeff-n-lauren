@@ -2,7 +2,7 @@
   We are very fortunate to already have many items for our home. As you may know, 
   we appreciate the small daily things and enjoy practical gifts. We would love 
   and welcome gift cards from the places we shop or eat at routinely: <br/>
-  Amazon, Giant Food, Target, Wylie Wagg, Visa
+  Amazon, Giant Food, Home Depot, Target, Wylie Wagg, etc
 </p>
 <p>
   We have put together a traditional registry on 
