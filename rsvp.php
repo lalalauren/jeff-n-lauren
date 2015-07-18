@@ -8,7 +8,7 @@ if (empty($access) && empty($_REQUEST['name'])) {
 // Require the config file.
 require_once 'config.php';
 
-// Get the guests that have already been registered to this IP address and
+// Get the guests that have already been RSVPed to this IP address and
 // the other guests recorded as part of the couple.
 list($guests, $other_guests) = get_rsvp_init();
 ?>
@@ -32,8 +32,8 @@ list($guests, $other_guests) = get_rsvp_init();
     <input type="text" name="name" id="name" class="rsvp-input" autocomplete="off" placeholder="Enter your name...">
     <div id="rsvp-input-submit" class="rsvp-input"></div>
   <?php else: ?>
-    <div id="already-registered">
-      You have already registered as <?php echo format_guest_list($guests); ?>. Please contact Lauren or Jeff if you need to register another guest.
+    <div id="already-rsvped">
+      You have already RSVPed as <?php echo format_guest_list($guests); ?>. Please contact Lauren or Jeff if you need to RSVP another guest.
       <?php if (!empty($other_guests)): ?>
         Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?
       <?php endif; ?>

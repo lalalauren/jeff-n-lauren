@@ -46,10 +46,10 @@ function format_guest_list($guests) {
  *   couples linked to the first set.
  */
 function get_rsvp_init() {
-  // Get the guests that have already been registered to this address.
+  // Get the guests that have already been RSVPed to this address.
   $guests = array();
 
-  // Get the other guests that are linked to these registered guests.
+  // Get the other guests that are linked to these RSVPed guests.
   $other_guests = array();
 
   // Query every guest already RSVPed to this IP.
@@ -59,10 +59,10 @@ function get_rsvp_init() {
     // Get the guest id.
     $guest = get_guest($row['gid']);
 
-    // See if there is a guest linked to the perosn already registered.
+    // See if there is a guest linked to the perosn already RSVPed.
     $other_guest = get_other_guest($row['gid']);
     if ($other_guest && !is_rsvped($other_guest['gid'])) {
-      $other_guests[] = '<a class="unregistered-guest" name="' . $other_guest['gid'] . '">'
+      $other_guests[] = '<a class="not-rsvped-guest" name="' . $other_guest['gid'] . '">'
               . to_guest_name($other_guest)
               . '</a>';
     }
@@ -71,7 +71,7 @@ function get_rsvp_init() {
     $time = format_rsvp_time($row['timestamp']);
 
     // Convert the gid to a string and add the time.
-    $guests[] = '<a class="registered-guest">'
+    $guests[] = '<a class="rsvped-guest">'
             . to_guest_name($guest)
             . $time
             . '</a>';

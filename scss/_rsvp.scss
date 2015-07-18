@@ -70,9 +70,9 @@ $degreesInput: 3deg;
 }
 
 /**
- * Controls the formatting of the registered and unregistered guest names.
+ * Controls the formatting of the registered and not RSVPed guest names.
  */
-#rsvp a.registered-guest {
+#rsvp a.rsvped-guest {
   color: #7AC0F8;
   text-decoration: none;
   text-shadow: none;

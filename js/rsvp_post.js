@@ -2,7 +2,7 @@ $(function() {
   /**
    * Hide RSVP timestamps unless we're hovering.
    */
-  $('a.registered-guest').hover(
+  $('a.rsvped-guest').hover(
           function() {
             var time = $(this).children('span.rsvp-timestamp');
             if (time.css('display') === 'none') {
@@ -12,9 +12,9 @@ $(function() {
   );
 
   /**
-   * When clicking on a guest not yet registered, launch a dialog box for them.
+   * When clicking on a guest not yet RSVPed, launch a dialog box for them.
    */
-  $('.unregistered-guest').click(function() {
+  $('.not-rsvped-guest').click(function() {
     // Create an overlay.
     $('body').append('<div id="overlay"></div>');
 
@@ -27,7 +27,7 @@ $(function() {
   });
 
   /**
-   * Get the dialog box for registering.
+   * Get the dialog box for RSVPing.
    * 
    * @param int gid
    *   Guest identifier.
@@ -61,7 +61,7 @@ $(function() {
             $('#rsvp-form').replaceWith(data);
           } else {
             // Put new text in.
-            $('#rsvp-form').replaceWith('There was an error registering '
+            $('#rsvp-form').replaceWith('There was an error RSVPing '
                     + name + '. Contact Jeff or Lauren directly.');
           }
         }
