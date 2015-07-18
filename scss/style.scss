@@ -32,4 +32,10 @@ ul {
   list-style-type: none;
 }
 
+.big-number {
+  padding-top: 0.25em;
+  font-size: 5em;
+  line-height: 0.5em;
+}
+
 @import '_overlay.scss';

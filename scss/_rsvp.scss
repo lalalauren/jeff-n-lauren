@@ -15,14 +15,9 @@ $degreesInput: 3deg;
 /**
  * Specific content decoration.
  */
-#rsvp .section-content {
-  background-color: rgba(25, 25, 112, 0.9);
-  font-family: 'Indie Flower', cursive;
-  width: 500px;
-  min-width: 300px;
-  margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
+#rsvp-text-and-arrow {
+  float: left;
+  width: 200px;
 }
 
 /**
@@ -47,11 +42,11 @@ $degreesInput: 3deg;
 }
 
 /**
- * Controls the RSVP image.
+ * Controls the RSVP image (this is the arrow).
  */
-#rsvp .section-content img {
+#rsvp img {
   float: left;
-  padding-left: 75px;
+  padding-left: 100px;
   width: 64px;
   height: 64px;
   -ms-transform: rotate($degreesArrow); /* IE 9 */
@@ -88,10 +83,13 @@ $degreesInput: 3deg;
  * Controls the RSVP text boxes.
  */
 #rsvp .rsvp-input {
-  width: 350px;
+  width: -moz-calc(100% - 200px);
+  width: -webkit-calc(100% - 200px);
+  width: calc(100% - 200px);
   height: 50px;
-  float: right;
-  margin-top: -50px;
+  float: left;
+  margin-left: 205px;
+  margin-top: -100px;
   //-ms-transform: rotate($degreesInput); /* IE 9 */
   //-webkit-transform: rotate($degreesInput); /* Chrome, Safari, Opera */
   //transform: rotate($degreesInput);
@@ -129,4 +127,20 @@ ul.ui-autocomplete li.ui-state-focus {
   border-radius: 10px;
   width: 4em;
   margin: 1em 0.75em 0em 0.75em;
+}
+
+/**
+ * Controls the look of the RSVP blocks.
+ */
+.rsvp-block {
+  display: inline-block;
+  border: 0.33em solid #ffff99;
+  background-color: rgba(255, 255, 133, 0.4);
+  color: #001F5C;
+  width: 7em;
+  margin-left: auto;
+  margin-right: auto;
+}
+#rsvp .big-number-text {
+  font-size: 0.75em;
 }

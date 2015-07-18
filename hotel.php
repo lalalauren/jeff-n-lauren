@@ -23,8 +23,8 @@
 
 <div id="must-book">
   <div id="days-left">
-    <div id="days-left-number"><?php echo floor((strtotime('September 1, 2015') - time()) / 86400); ?></div>
-    <div id="days-left-text">days left</div>
+    <div class="big-number"><?php echo floor((strtotime('September 1, 2015') - time()) / 86400); ?></div>
+    <div class="big-number-text">days left</div>
   </div>
   <div>Must book rooms by 09/01/2015!</div>
 </div>
