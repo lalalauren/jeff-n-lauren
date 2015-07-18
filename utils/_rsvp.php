@@ -92,8 +92,8 @@ function get_rsvp_init() {
  */
 function format_rsvp_time($time) {
   return '<span class="rsvp-timestamp"> on '
-    . '<span class="rsvp-date">'
-  . date('M d', $time) 
+          . '<span class="rsvp-date">'
+          . date('M d', $time)
           . '</span>'
           . ' at '
           . '<span class="rsvp-time">'
@@ -117,4 +117,32 @@ function is_rsvped($gid) {
     return TRUE;
   }
   return FALSE;
+}
+
+/**
+ * Gets number of people RSVPed.
+ * 
+ * @return int
+ *  Number RSVPed.
+ */
+function get_num_rsvped() {
+  $query = mysql_query('SELECT count(*) AS num FROM rsvped');
+  if ($result = mysql_fetch_array($query)) {
+    return $result['num'];
+  }
+  return 0;
+}
+
+/**
+ * Gets number of people who have RSVPed and are attending.
+ * 
+ * @return int
+ *   Number RSVPed and coming.
+ */
+function get_num_attending() {
+  $query = mysql_query('SELECT count(*) AS num FROM rsvped WHERE attending = 1');
+  if ($result = mysql_fetch_array($query)) {
+    return $result['num'];
+  }
+  return 0;
 }
