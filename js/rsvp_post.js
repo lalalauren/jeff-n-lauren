@@ -72,17 +72,17 @@ $(function() {
       $("#overlay").remove();
     });
 
-    // Define the No button.
-    var no = $('<a id="rsvp-no" class="rsvp-button" src="#">No</a>');
-    no.hover(function() {
+    // Define the Cancel button.
+    var cancel = $('<a id="rsvp-cancel" class="rsvp-button" src="#">Cancel</a>');
+    cancel.hover(function() {
       $(this).css('border-color', '#FF0000');
       $(this).css('cursor', 'pointer');
     }, function() {
       $(this).css('border-color', '#fff');
       $(this).css('cursor', 'default');
     });
-    // Determine the function for the no button.
-    no.click(function() {
+    // Determine the function for the cancel button.
+    cancel.click(function() {
       // Remove the content box.
       $('.overlay-content').remove();
       // Remove the overlay background.
@@ -99,7 +99,7 @@ $(function() {
 
     // Append the options to the box.
     box.append(yes);
-    box.append(no);
+    box.append(cancel);
 
     // Return the HTML for the box.
     return box;
