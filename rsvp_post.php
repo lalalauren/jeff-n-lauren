@@ -29,29 +29,43 @@ if (!get_guest($gid)) {
 $ip = getIP();
 $time = time();
 $sql = "INSERT INTO rsvped (gid, attending, ip, timestamp)
-VALUES ('" . $gid . "', '" . $attending . "', '"  . $ip . "', '" . $time . "')";
+VALUES ('" . $gid . "', '" . $attending . "', '" . $ip . "', '" . $time . "')";
 
 // Insert the RSVP.
 if (mysql_query($sql)) {
+  // Get guest.
   $guest = get_guest($gid);
-  echo 'RSVPed '
-    . '<a href="rsvped-guest">'
-    . to_guest_name($guest)
-    . '</a>.';
+  
+  // Add a wrapper.
+  echo '<div id="already-rsvped">';
+  
+  // Output guest.
+  echo 'RSVPed ' . to_guest_name($guest) . '.';
+  
+  // If there's other guests linked to this guest, inquire about them.
   if (($other_guest = get_other_guest($gid))) {
-    if ( !is_rsvped($other_guest['gid'])) {
-    echo ' Did you want to RSVP '
+    // If they're NOT already RSVPed....
+    if (!is_rsvped($other_guest['gid'])) {
+      echo ' Did you want to RSVP '
       . '<a class="not-rsvped-guest" name="' . $other_guest['gid'] . '">'
-    . to_guest_name($other_guest) 
-            . '</a>'
-            . ' too?';
+      . to_guest_name($other_guest)
+      . '</a>'
+      . ' too?';
+      echo '<script>$(".not-rsvped-guest").on("click", window.notRSVPedHandler);</script>';
     }
+    // If the other guest has already RSVPed...
     else {
-      echo ' You have already RSVPed ' 
+      echo ' You have already RSVPed '
       . to_guest_name($other_guest) . ' previously.'
-              . ' Please contact Lauren or Jeff if you need to R another guest.';
+      . ' Please contact Lauren or Jeff if you need to RSVP another guest.';
     }
   }
-} else {
+  
+  // Close the wrapper.
+  echo '</div>';
+  
+}
+// If there was no result for RSVPing this guest, return FALSE.
+else {
   return FALSE;
 }

@@ -49,7 +49,7 @@ list($guests, $other_guests) = get_rsvp_init();
   $num_rsvped = get_num_rsvped() + 2; 
   $percent_rsvped = round($num_rsvped / 95 * 100);
   ?>
-  <div class="big-number"><?php echo $percent_rsvped; ?>%</div>
+  <div class="big-number"><span id="percent-rsvped"><?php echo $percent_rsvped; ?></span>%</div>
   <div class="big-number-text">have RSVPed</div>
 </div>
 
@@ -58,7 +58,7 @@ list($guests, $other_guests) = get_rsvp_init();
   $num_attending = get_num_attending() + 2;
   $percent_attending = round($num_attending / 95 * 100);
   ?>
-  <div class="big-number"><?php echo $percent_attending; ?>%</div>
+  <div class="big-number"><span id="percent-attending"><?php echo $percent_attending; ?></span>%</div>
   <div class="big-number-text">are coming</div>
 </div>
 

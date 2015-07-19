@@ -14,7 +14,7 @@ $(function() {
   /**
    * When clicking on a guest not yet RSVPed, launch a dialog box for them.
    */
-  $('.not-rsvped-guest').click(function() {
+  window.notRSVPedHandler = function() {
     // Create an overlay.
     $('body').append('<div id="overlay"></div>');
 
@@ -24,7 +24,8 @@ $(function() {
 
     // Define a closing div and set it up to work.
     $('#overlay').append(window.overlayClose);
-  });
+  };
+  $('.not-rsvped-guest').click(window.notRSVPedHandler);
 
   /**
    * Get the dialog box for RSVPing.
@@ -38,6 +39,36 @@ $(function() {
    *   Jquery HTML for the dialog box.
    */
   function getBox(gid, name) {
+    // Define the response for data coming back from the RSVP.
+    var rsvpResponse = function(data) {
+      // If this was a success after submitting the form...
+      if ($('input#name').length) {
+        // Remove the input field.
+        $('input#name').remove();
+        if (data) {
+          // Put new text in.
+          $('#rsvp-form').replaceWith(data);
+        } else {
+          // Put new text in.
+          $('#rsvp-form').replaceWith('There was an error RSVPing '
+                  + name + '. Contact Jeff or Lauren directly.');
+        }
+      }
+      // If this was a success after registering another user...
+      else if ($('#already-rsvped').length) {
+        // Remove the already registered field.
+        $('#already-registered').remove();
+        if (data) {
+          // Put new text in.
+          $('#already-rsvped').replaceWith(data);
+        } else {
+          // Put new text in.
+          $('#already-rsvped').replaceWith('There was an error RSVPing '
+                  + name + '. Contact Jeff or Lauren directly.');
+        }
+      }
+    };
+
     // Define the Yes button.
     var yes = $('<a id="rsvp-yes" class="rsvp-button" src="#">Will Attend</a>');
     yes.hover(function() {
@@ -52,26 +83,16 @@ $(function() {
         type: "POST",
         cache: false,
         url: 'rsvp_post.php',
-        data: {'gid': gid, 'attending' : 1},
-        success: function(data) {
-          // Remove the input field.
-          $('input#name').remove();
-          if (data) {
-            // Put new text in.
-            $('#rsvp-form').replaceWith(data);
-          } else {
-            // Put new text in.
-            $('#rsvp-form').replaceWith('There was an error RSVPing '
-                    + name + '. Contact Jeff or Lauren directly.');
-          }
-        }
+        data: {'gid': gid, 'attending': 1},
+        success: rsvpResponse
       });
+
       // Remove the content box.
       $('.overlay-content').remove();
       // Remove the overlay background.
       $("#overlay").remove();
     });
-    
+
     // Define the No button.
     var no = $('<a id="rsvp-cancel" class="rsvp-button" src="#">Will Not Attend</a>');
     no.hover(function() {
@@ -88,20 +109,10 @@ $(function() {
         type: "POST",
         cache: false,
         url: 'rsvp_post.php',
-        data: {'gid': gid, 'attending' : 0},
-        success: function(data) {
-          // Remove the input field.
-          $('input#name').remove();
-          if (data) {
-            // Put new text in.
-            $('#rsvp-form').replaceWith(data);
-          } else {
-            // Put new text in.
-            $('#rsvp-form').replaceWith('There was an error RSVPing '
-                    + name + '. Contact Jeff or Lauren directly.');
-          }
-        }
+        data: {'gid': gid, 'attending': 0},
+        success: rsvpResponse
       });
+
       // Remove the content box.
       $('.overlay-content').remove();
       // Remove the overlay background.
