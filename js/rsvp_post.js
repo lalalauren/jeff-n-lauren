@@ -39,7 +39,7 @@ $(function() {
    */
   function getBox(gid, name) {
     // Define the Yes button.
-    var yes = $('<a id="rsvp-yes" class="rsvp-button" src="#">Yes</a>');
+    var yes = $('<a id="rsvp-yes" class="rsvp-button" src="#">Will Attend</a>');
     yes.hover(function() {
       $(this).css('border-color', '#66FF66');
     }, function() {
@@ -52,7 +52,43 @@ $(function() {
         type: "POST",
         cache: false,
         url: 'rsvp_post.php',
-        data: {'gid': gid},
+        data: {'gid': gid, 'attending' : 1},
+        success: function(data) {
+          // Remove the input field.
+          $('input#name').remove();
+          if (data) {
+            // Put new text in.
+            $('#rsvp-form').replaceWith(data);
+          } else {
+            // Put new text in.
+            $('#rsvp-form').replaceWith('There was an error RSVPing '
+                    + name + '. Contact Jeff or Lauren directly.');
+          }
+        }
+      });
+      // Remove the content box.
+      $('.overlay-content').remove();
+      // Remove the overlay background.
+      $("#overlay").remove();
+    });
+    
+    // Define the No button.
+    var no = $('<a id="rsvp-cancel" class="rsvp-button" src="#">Will Not Attend</a>');
+    no.hover(function() {
+      $(this).css('border-color', '#FF0000');
+      $(this).css('cursor', 'pointer');
+    }, function() {
+      $(this).css('border-color', '#fff');
+      $(this).css('cursor', 'default');
+    });
+    // Determine the function for the No button.
+    no.click(function() {
+      // Submit the form.
+      $.ajax({
+        type: "POST",
+        cache: false,
+        url: 'rsvp_post.php',
+        data: {'gid': gid, 'attending' : 0},
         success: function(data) {
           // Remove the input field.
           $('input#name').remove();
@@ -99,6 +135,7 @@ $(function() {
 
     // Append the options to the box.
     box.append(yes);
+    box.append(no);
     box.append(cancel);
 
     // Return the HTML for the box.
