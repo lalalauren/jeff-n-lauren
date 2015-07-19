@@ -1,4 +1,8 @@
 <?php
+
+// Allow access.
+$access = 'access_lock';
+
 // Require the config file.
 require_once 'config.php';
 
