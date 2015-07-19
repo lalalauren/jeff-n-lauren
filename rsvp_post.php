@@ -34,9 +34,10 @@ VALUES ('" . $gid . "', '" . $attending . "', '"  . $ip . "', '" . $time . "')";
 // Insert the RSVP.
 if (mysql_query($sql)) {
   $guest = get_guest($gid);
-  echo "RSVPed " 
+  echo 'RSVPed '
+    . '<a href="rsvped-guest">'
     . to_guest_name($guest)
-    . ' ' . format_rsvp_time($time) . '.';
+    . '</a>.';
   if (($other_guest = get_other_guest($gid))) {
     if ( !is_rsvped($other_guest['gid'])) {
     echo ' Did you want to RSVP '
