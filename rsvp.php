@@ -33,9 +33,11 @@ list($guests, $other_guests) = get_rsvp_init();
     <div id="rsvp-input-submit" class="rsvp-input"></div>
   <?php else: ?>
     <div id="already-rsvped">
-      You have already RSVPed as <?php echo format_guest_list($guests); ?>. Please contact Lauren or Jeff if you need to RSVP another guest.
+      You have already RSVPed as <?php echo format_guest_list($guests); ?>.
       <?php if (!empty($other_guests)): ?>
         Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?
+      <?php else: ?>
+        Please contact Lauren or Jeff if you need to RSVP another guest.
       <?php endif; ?>
     </div>
   <?php endif; ?>
