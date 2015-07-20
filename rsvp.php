@@ -43,10 +43,10 @@ list($guests, $other_guests) = get_rsvp_init();
 <div class="clearfix"></div>
 
 <div id="rsvp-help">
-  Please slowly enter either your first or last name into the text box and
-  select your name from the list that pops up. If your name does not pop up,
-  consider using a different first name or typing slower. If problems persist,
-  contact Lauren or Jeff.
+  Please slowly enter <u>either</u> your first or last name into the text box and
+  select your name from the list that pops up. <i>If</i> your name does not pop up,
+  consider using a different first name, a last name, or typing slower. 
+  If problems persist, contact Lauren or Jeff.
 </div>
 
 <div id="num-rsvped" class="rsvp-block">

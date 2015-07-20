@@ -44,6 +44,7 @@ $(function() {
     },
     response: function(event, ui) {
       if (ui.content.length === 0) {
+        $('#please-rsvp').remove();
         $("#empty-message").text("No results found.");
         $('#rsvp-help').show();
       } else {
