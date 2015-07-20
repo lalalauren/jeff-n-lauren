@@ -141,3 +141,17 @@ ul.ui-autocomplete li.ui-state-focus {
 #rsvp .big-number-text {
   font-size: 0.75em;
 }
+
+/**
+ * Controls the look of the help box.
+ */
+#rsvp-help {
+  border: 0.5em #1947A3 solid;
+  background-color: #fff;
+  color: #1947A3;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  box-shadow: 0.5em 0.5em 0.5em #333;
+}

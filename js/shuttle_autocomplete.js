@@ -8,10 +8,10 @@ $(function() {
       if (ui.item) {
         // Set the input.
         $('#name').val(ui.item.label);
-
+        
         // Create an overlay.
         $('body').append('<div id="overlay"></div>');
-
+        
         // Define the dialog box.
         var box = window.getBox(ui.item.hidden, ui.item.label);
         $('body').append(box);
@@ -41,14 +41,6 @@ $(function() {
           console.log("ERROR WITH AUTOCOMPLETE: " + error);
         }
       });
-    },
-    response: function(event, ui) {
-      if (ui.content.length === 0) {
-        $("#empty-message").text("No results found.");
-        $('#rsvp-help').show();
-      } else {
-        $("#empty-message").empty();
-      }
     }
   };
 });

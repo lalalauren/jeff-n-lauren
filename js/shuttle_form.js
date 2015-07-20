@@ -1,7 +1,7 @@
 $(function () {
   
   // Declare a form for the RSVP.
-  window.rsvpForm = $('<input type="text" name="name" id="name" class="rsvp-input" autocomplete="off" placeholder="Enter your name..."><p id="empty-message"></p>');
+  window.rsvpForm = $('<input type="text" name="name" id="name" class="rsvp-input" autocomplete="off" placeholder="Enter your name...">');
   window.rsvpForm.autocomplete(window.rsvpAutocompleteHandler);
   
   // On load, replace the existing classes with the form.

@@ -42,6 +42,13 @@ list($guests, $other_guests) = get_rsvp_init();
 </div>
 <div class="clearfix"></div>
 
+<div id="rsvp-help">
+  Please slowly enter either your first or last name into the text box and
+  select your name from the list that pops up. If your name does not pop up,
+  consider using a different first name or typing slower. If problems persist,
+  contact Lauren or Jeff.
+</div>
+
 <div id="num-rsvped" class="rsvp-block">
   <div class="big-number"><span id="percent-rsvped"><?php echo get_percent_rsvped(); ?></span>%</div>
   <div class="big-number-text">have RSVPed</div>
