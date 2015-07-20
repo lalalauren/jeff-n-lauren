@@ -67,6 +67,31 @@ $(function() {
                   + name + '. Contact Jeff or Lauren directly.');
         }
       }
+      
+      // Regardless if there was another user registered already, update the 
+      // percentages.
+      // Get the percentage RSVPed.
+      $.ajax({
+        type: "POST",
+        cache: false,
+        url: 'rsvp_percentage.php',
+        data: {'percent': 'rsvped'},
+        success: function (data) {
+          // Update the span on success.
+          $('#percent-rsvped').text(data);
+        }
+      });
+      // Get the percentage attending.
+      $.ajax({
+        type: "POST",
+        cache: false,
+        url: 'rsvp_percentage.php',
+        data: {'percent': 'attending'},
+        success: function (data) {
+          // Update the span on success.
+          $('#percent-attending').text(data);
+        }
+      });
     };
 
     // Define the Yes button.

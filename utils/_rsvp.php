@@ -146,3 +146,25 @@ function get_num_attending() {
   }
   return 0;
 }
+
+/**
+ * Get the percentage of people RSVPed.
+ * 
+ * @return int
+ *   Percentage of people who have RSVPed.
+ */
+function get_percent_rsvped() {
+  $num_rsvped = get_num_rsvped() + 2; 
+  return round($num_rsvped / 95 * 100);
+}
+
+/**
+ * Get the percentage of people coming.
+ * 
+ * @return int
+ *   Percentage of people who are coming.
+ */
+function get_percent_attending() {
+  $num_attending = get_num_attending() + 2;
+  return round($num_attending / 95 * 100);
+}

@@ -45,20 +45,12 @@ list($guests, $other_guests) = get_rsvp_init();
 <div class="clearfix"></div>
 
 <div id="num-rsvped" class="rsvp-block">
-  <?php 
-  $num_rsvped = get_num_rsvped() + 2; 
-  $percent_rsvped = round($num_rsvped / 95 * 100);
-  ?>
-  <div class="big-number"><span id="percent-rsvped"><?php echo $percent_rsvped; ?></span>%</div>
+  <div class="big-number"><span id="percent-rsvped"><?php echo get_percent_rsvped(); ?></span>%</div>
   <div class="big-number-text">have RSVPed</div>
 </div>
 
 <div id="num-coming" class="rsvp-block">
-  <?php
-  $num_attending = get_num_attending() + 2;
-  $percent_attending = round($num_attending / 95 * 100);
-  ?>
-  <div class="big-number"><span id="percent-attending"><?php echo $percent_attending; ?></span>%</div>
+  <div class="big-number"><span id="percent-attending"><?php echo get_percent_attending(); ?></span>%</div>
   <div class="big-number-text">are coming</div>
 </div>
 
