@@ -54,6 +54,7 @@
       'hotel' => 'Hotels & Accomodations',
       'shuttle' => 'Shuttle Service',
       'registry' => 'Our Registry',
+      'rsvp' => 'RSVP',
   );
   ?>
 
