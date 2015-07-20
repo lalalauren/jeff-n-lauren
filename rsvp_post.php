@@ -40,7 +40,7 @@ if (mysql_query($sql)) {
   echo '<div id="already-rsvped">';
   
   // Output guest.
-  echo 'RSVPed ' . to_guest_name($guest) . '.';
+  echo 'You have just RSVPed ' . to_guest_name($guest) . '!<br/>';
   
   // If there's other guests linked to this guest, inquire about them.
   if (($other_guest = get_other_guest($gid))) {
@@ -55,11 +55,21 @@ if (mysql_query($sql)) {
     }
     // If the other guest has already RSVPed...
     else {
-      echo ' You have already RSVPed '
-      . to_guest_name($other_guest) . ' previously.'
-      . ' Please contact Lauren or Jeff if you need to RSVP another guest.';
+      echo 'You have already RSVPed '
+      . to_guest_name($other_guest) . ' previously.';
     }
+    // Include a newline if there's other guests.
+    echo '<br/>';
   }
+  
+  // Regardless if there is another linked guest, ask if they want to RSVP
+  // someone else.
+  echo '<a class="open-rsvp-form">Click here</a> to register a different guest.';
+  echo '<script>$(".open-rsvp-form").on("click", function () {'
+      . '$("#already-rsvped").empty();'
+      . '$("#already-rsvped").append(window.rsvpForm);'
+      . 'window.rsvpForm.autocomplete(window.rsvpAutocompleteHandler);'
+      . '});</script>';
   
   // Close the wrapper.
   echo '</div>';

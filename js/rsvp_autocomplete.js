@@ -2,7 +2,7 @@ $(function() {
   /**
    * Autocomplete functionality for dropdown.
    */
-  $("#name").autocomplete({
+  window.rsvpAutocompleteHandler = {
     minLength: 3,
     select: function(event, ui) {
       if (ui.item) {
@@ -42,5 +42,5 @@ $(function() {
         }
       });
     }
-  });
+  };
 });

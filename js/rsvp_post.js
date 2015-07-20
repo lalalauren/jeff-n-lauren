@@ -41,21 +41,8 @@ $(function() {
   function getBox(gid, name) {
     // Define the response for data coming back from the RSVP.
     var rsvpResponse = function(data) {
-      // If this was a success after submitting the form...
-      if ($('input#name').length) {
-        // Remove the input field.
-        $('input#name').remove();
-        if (data) {
-          // Put new text in.
-          $('#rsvp-form').replaceWith(data);
-        } else {
-          // Put new text in.
-          $('#rsvp-form').replaceWith('There was an error RSVPing '
-                  + name + '. Contact Jeff or Lauren directly.');
-        }
-      }
       // If this was a success after registering another user...
-      else if ($('#already-rsvped').length) {
+      if ($('#already-rsvped').length) {
         // Remove the already registered field.
         $('#already-registered').remove();
         if (data) {
@@ -64,6 +51,19 @@ $(function() {
         } else {
           // Put new text in.
           $('#already-rsvped').replaceWith('There was an error RSVPing '
+                  + name + '. Contact Jeff or Lauren directly.');
+        }
+      }
+      // If this was a success after submitting the form...
+      else if ($('input#name').length) {
+        // Remove the input field.
+        $('input#name').remove();
+        if (data) {
+          // Put new text in.
+          $('#rsvp-form').replaceWith(data);
+        } else {
+          // Put new text in.
+          $('#rsvp-form').replaceWith('There was an error RSVPing '
                   + name + '. Contact Jeff or Lauren directly.');
         }
       }

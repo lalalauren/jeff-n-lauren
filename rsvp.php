@@ -29,15 +29,14 @@ list($guests, $other_guests) = get_rsvp_init();
 <div id="rsvp-form">
   <?php if (empty($guests)): ?>
   <div id="please-rsvp">Please RSVP by <u>August 16</u>!</div>
-    <input type="text" name="name" id="name" class="rsvp-input" autocomplete="off" placeholder="Enter your name...">
+  <span id="rsvp-form-original"></span>
   <?php else: ?>
     <div id="already-rsvped">
-      You have already RSVPed as <?php echo format_guest_list($guests); ?>.
+      You have already RSVPed as <?php echo format_guest_list($guests); ?>.<br/>
       <?php if (!empty($other_guests)): ?>
-        Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?
-      <?php else: ?>
-        Please contact Lauren or Jeff if you need to RSVP another guest.
+        Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?<br/>
       <?php endif; ?>
+        <a class="open-rsvp-form">Click here</a> to register a different guest.
     </div>
   <?php endif; ?>
 </div>
