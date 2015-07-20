@@ -36,7 +36,7 @@ list($guests, $other_guests) = get_rsvp_init();
       <?php if (!empty($other_guests)): ?>
         Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?<br/>
       <?php endif; ?>
-        <a class="open-rsvp-form">Click here</a> to register a different guest.
+        <a class="open-rsvp-form">Click here</a> to RSVP a different guest.
     </div>
   <?php endif; ?>
 </div>

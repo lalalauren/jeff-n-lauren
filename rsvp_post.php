@@ -64,7 +64,7 @@ if (mysql_query($sql)) {
   
   // Regardless if there is another linked guest, ask if they want to RSVP
   // someone else.
-  echo '<a class="open-rsvp-form">Click here</a> to register a different guest.';
+  echo '<a class="open-rsvp-form">Click here</a> to RSVP a different guest.';
   echo '<script>$(".open-rsvp-form").on("click", function () {'
       . '$("#already-rsvped").empty();'
       . '$("#already-rsvped").append(window.rsvpForm);'
