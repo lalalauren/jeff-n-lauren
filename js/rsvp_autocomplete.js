@@ -29,7 +29,7 @@ $(function() {
           response(
                   $.map(data, function(item) {
                     return {
-                      label: item.title + " " + item.firstname + " " + item.lastname + (item.suffix === undefined ? "" : " " + item.suffix),
+                      label: item.title + " " + item.firstname + " " + item.lastname + (item.suffix === null ? "" : " " + item.suffix),
                       hidden: item.gid
                     };
                   })

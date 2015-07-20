@@ -26,10 +26,12 @@ $name = trim($_GET['name']);
 
 // Query based on the name.
 $query = mysql_query(
-        "SELECT gid,title,firstname,lastname "
-        . "FROM guests "
-        . "WHERE lastname LIKE '%$name%' "
-        . "OR firstname LIKE '%$name%'");
+        "SELECT guests.gid, title, firstname, lastname, suffix"
+        . " FROM guests"
+        . " LEFT JOIN rsvped ON guests.gid = rsvped.gid"
+        . " WHERE (lastname LIKE '%$name%'"
+        . " OR firstname LIKE '%$name%')"
+        . " AND ISNULL(attending)");
 
 // Fetch every result and add it to the results array.
 while ($result = mysql_fetch_array($query)) {
