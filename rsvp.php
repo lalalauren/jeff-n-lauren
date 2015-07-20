@@ -30,7 +30,6 @@ list($guests, $other_guests) = get_rsvp_init();
   <?php if (empty($guests)): ?>
   <div id="please-rsvp">Please RSVP by <u>August 16</u>!</div>
     <input type="text" name="name" id="name" class="rsvp-input" autocomplete="off" placeholder="Enter your name...">
-    <div id="rsvp-input-submit" class="rsvp-input"></div>
   <?php else: ?>
     <div id="already-rsvped">
       You have already RSVPed as <?php echo format_guest_list($guests); ?>.
