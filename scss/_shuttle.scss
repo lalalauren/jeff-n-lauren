@@ -1,0 +1,16 @@
+/**
+ * Let the form be a little bigger than everything else.
+ */
+#shuttle-form {
+  width: 110%;
+  margin-left: -5%;
+}
+
+/**
+ * The input size needs to be the same as the dropdown so it has to be 200px.
+ */
+input#shuttle-name {
+  width: 200px;
+  font-size: 0.75em;
+  font-family: 'Indie Flower', cursive;
+}
