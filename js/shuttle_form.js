@@ -23,8 +23,10 @@ $(function () {
   
   // When clicking on the Add Guest link, add an input.
   $('button[name="add-shuttle-guest"]').click(function() {
-    console.log("test");
-    $(".shuttle-guest").last().after(shuttleGuest.clone().get());
+    var clone = shuttleGuest.clone();
+    clone.children('input').val('');
+    clone.children('input').autocomplete(window.shuttleAutocompleteHandler);
+    $(".shuttle-guest").last().after(clone.get());
   });
   
 });
