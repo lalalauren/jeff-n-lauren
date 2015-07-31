@@ -14,3 +14,18 @@ input#shuttle-name {
   font-size: 0.75em;
   font-family: 'Indie Flower', cursive;
 }
+
+/**
+ * Shrink the font a little here.
+ */
+.shuttle-guest-input, .shuttle-guest-text {
+  font-size: 0.75em;
+}
+
+/**
+ * Style filled text for the form.
+ */
+.shuttle-name, .shuttle-option {
+  font-size: 1em;
+  text-decoration: underline;
+}

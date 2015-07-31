@@ -1,28 +1,40 @@
 $(function() {
-  $('button[name="submit-shuttle-form"').click(function() {
+  // Abstract the submit function.
+  window.shuttleSubmit = function(e) {
     // Hide the buttons.
     $(this).parent().children('button').remove();
-    $("#shuttle-form .shuttle-guest").each(function() {
+
+    // For each guest...
+    $(".shuttle-guest-input").each(function() {
       // Declare this for later use.
       var shuttleGuest = $(this);
-      console.log(shuttleGuest);
+      // Get the name.
+      var name = shuttleGuest.children('input[type="text"]').val();
+      if (typeof name === 'undefined') {
+        name = shuttleGuest.children('span.shuttle-name').text();
+      }
       // Submit the response.
       $.ajax({
         type: "POST",
         cache: false,
         url: 'shuttle_post.php',
-        data: {'name': shuttleGuest.children('input').val(), 'shuttle': shuttleGuest.children('select').children('option:selected').text()},
-        success: function (data) {
+        data: {
+          'name': name,
+          'shuttle': shuttleGuest.children('select').children('option:selected').text(),
+          'status': shuttleGuest.children('input[type="hidden"]').val()
+        },
+        success: function(data) {
           if (data) {
-          shuttleGuest.empty();
-          console.log(data);
-          shuttleGuest.append(data);
-        }
-        else {
-          console.log('submit failure');
-        }
+            shuttleGuest.empty();
+            shuttleGuest.append(data);
+          }
+          else {
+            console.log('submit failure');
+          }
         }
       });
     });
-  });
+  };
+
+  $('button[name="submit-shuttle-form"]').click(window.shuttleSubmit);
 });
