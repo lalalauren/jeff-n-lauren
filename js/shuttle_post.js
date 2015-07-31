@@ -27,6 +27,7 @@ $(function() {
           if (data) {
             shuttleGuest.empty();
             shuttleGuest.append(data);
+            shuttleGuest.show();
           }
           else {
             console.log('submit failure');

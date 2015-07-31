@@ -1,5 +1,5 @@
-$(function () {
-  
+$(function() {
+
   // Declare a form for the Shuttle.
   var shuttleGuest = $('<div class="shuttle-guest-input"></div>');
   var shuttleInput = $('<input type="text" name="shuttle-name" id="shuttle-name" class="shuttle-input" autocomplete="off" placeholder="Enter your name...">');
@@ -13,16 +13,16 @@ $(function () {
           + '</select>');
   var shuttleLine2 = $('<span>.</span>'); //.append('<input type="hidden" name="shuttle-status" value="1">');
   shuttleGuest.append(shuttleInput).append(shuttleLine).append(shuttleOption).append(shuttleLine2).append('<input type="hidden" name="shuttle-status" value="1">');
-  
+
   var shuttleForm = $('<div id="shuttle-form"></div>');
   shuttleForm.append(shuttleGuest);
   var addGuest = $('<button type="button" name="add-shuttle-guest">Add Guest</button>');
   var submitForm = $('<button type="submit" name="submit-shuttle-form">Submit</button>');
   shuttleForm.append('<br/><br/>').append(addGuest).append(submitForm);
-  
+
   // On load, replace the existing classes with the form.
   $('#shuttle-form-original').replaceWith(shuttleForm.get());
-  
+
   // Declare an action for the Add Guest button on the Shuttle Form.
   window.addShuttleGuestHandler = function(e) {
     // Get a new input element.
@@ -37,20 +37,20 @@ $(function () {
   // Bind any existing buttons so that when clicking on the Add Guest link, add 
   // an input.
   $('button[name="add-shuttle-guest"]').click(window.addShuttleGuestHandler);
-  
+
   // When clicking on the edit form button, convert all text to dropdowns.
   $('#edit-shuttle-form').click(function() {
     // Remove this text.
     $(this).parent('span').remove();
-    
+
     // Add buttons to the bottom.
     $('#shuttle-form').append(addGuest).append(submitForm);
-    
+
     // Replace all of the static shuttle direction text with dropdowns.
     $('.shuttle-guest-text').each(function() {
       // Get the shuttle option div.
       var option = $(this).children('.shuttle-option');
-      
+
       // Get a new dropdown element.
       var select = shuttleOption.clone();
       select.children("option:selected").prop("selected", false);
@@ -72,17 +72,17 @@ $(function () {
           select.val(3);
           select.children('option').eq(3).prop("selected", true);
       }
-      
+
       // Replace the div with the dropdown.
       option.replaceWith(select);
-      
+
       // Add the hidden value.
       $(this).append('<input type="hidden" name="shuttle-status" value="2">');
-      
+
       // Update the CSS class.
       $(this).removeClass("shuttle-guest-text");
       $(this).addClass("shuttle-guest-input");
-      
+
       // Append a delete command at the end.
       var deleteShuttleGuest = $('<a class="delete-shuttle-guest" title="remove">X</a>');
       // Get the guest div for scope.
@@ -95,18 +95,19 @@ $(function () {
       // Append this to the end.
       $(this).append(deleteShuttleGuest);
     });
-    
+
     // Append the form buttons.
     addGuest.bind("click", function(event) {
       $(this).parent().children('button').remove();
-      window.addShuttleGuestHandler(event); 
+      window.addShuttleGuestHandler(event);
     });
     $("#shuttle-form-old").append(addGuest);
-    submitForm.bind("click", function (event) { 
+    submitForm.bind("click", function(event) {
       $(this).parent().children('button').remove();
-      window.shuttleSubmit(event); 
+      window.shuttleSubmit(event);
+      $('#shuttle-already-registered').remove();
     });
     $("#shuttle-form-old").append(submitForm);
   });
-  
+
 });

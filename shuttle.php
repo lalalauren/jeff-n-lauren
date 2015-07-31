@@ -11,13 +11,14 @@ $result = mysql_fetch_array($query);
 <?php if (!$result): ?>
   <span id="shuttle-form-original"></span>
 <?php else: ?>
-
-  You have already requested a shuttle for
-  <?php echo $count; ?>
-  <?php if ($count == 1): ?>person<?php else: ?>people<?php endif; ?>
+  <span id="shuttle-already-registered">
+    You have already requested a shuttle for
+    <?php echo $count; ?>
+    <?php if ($count == 1): ?>person<?php else: ?>people<?php endif; ?>
+  </span>
   from this IP!
   <div id="shuttle-form-old">
-    
+
     <?php do { ?>
       <div class="shuttle-guest-text">
         <span class="shuttle-name"><?php echo $result['name']; ?></span><span> will be using the shuttle </span><span class="shuttle-option"><?php echo $result['shuttle']; ?></span><span>.</span>
@@ -27,6 +28,6 @@ $result = mysql_fetch_array($query);
     <br/>
     <span><a id="edit-shuttle-form">Click here</a> to edit your shuttle form.</span>
     <br/>
-    
+
   </div>
 <?php endif; ?>
