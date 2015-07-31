@@ -5,9 +5,6 @@ if (empty($access) && empty($_REQUEST['name'])) {
   die();
 }
 
-// Require the config file.
-require_once 'config.php';
-
 // Get the guests that have already been RSVPed to this IP address and
 // the other guests recorded as part of the couple.
 list($guests, $other_guests) = get_rsvp_init();
