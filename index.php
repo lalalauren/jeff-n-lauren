@@ -43,6 +43,8 @@
   foreach (glob('utils/*.php') as $util) {
     include_once $util;
   }
+  // Database configs
+  include_once 'config.php';
   ?>
 
   <?php
