@@ -38,3 +38,15 @@ function getIP() {
 
   return check_plain($ip);
 }
+
+/**
+ * Determines if viewing through a mobile device.
+ * 
+ * @see http://stackoverflow.com/questions/6524301/detect-mobile-browser
+ * 
+ * @return bool
+ *   TRUE if viewing with mobile device; FALSE otherwise.
+ */
+function isMobile() {
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
