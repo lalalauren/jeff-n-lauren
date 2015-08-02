@@ -1,6 +1,18 @@
 <?php $access = 'access_lock'; ?>
+<?php
+// Libraries
+foreach (glob('utils/*.php') as $util) {
+  include_once $util;
+}
+// Database configs
+include_once 'config.php';
+?>
 <html>
   <head>
+    
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
     <title>Jeff & Lauren</title>
 
     <!--Stylesheets-->
@@ -37,15 +49,6 @@
       <script src='<?php echo $script; ?>' type='text/javascript'></script>
     <?php endforeach; ?>
   </head>
-
-  <?php
-  // Libraries
-  foreach (glob('utils/*.php') as $util) {
-    include_once $util;
-  }
-  // Database configs
-  include_once 'config.php';
-  ?>
 
   <?php
   // Define the pages that we will use.
