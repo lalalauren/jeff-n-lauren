@@ -23,17 +23,21 @@ list($guests, $other_guests) = get_rsvp_init();
   <img name="rsvp-arrow" src="images/arrow.png"/>
 </div>
 
+<?php if (isMobile()): ?>
+  <div class="clearfix"></div>
+<?php endif; ?>
+
 <div id="rsvp-form">
   <?php if (empty($guests)): ?>
-  <div id="please-rsvp">Please RSVP by <u>August 16</u>!</div>
-  <span id="rsvp-form-original"></span>
+    <div id="please-rsvp">Please RSVP by <u>August 16</u>!</div>
+    <span id="rsvp-form-original"></span>
   <?php else: ?>
     <div id="already-rsvped">
       You have already RSVPed as <?php echo format_guest_list($guests); ?>.<br/>
       <?php if (!empty($other_guests)): ?>
         Did you want to RSVP <?php echo format_guest_list($other_guests); ?> too?<br/>
       <?php endif; ?>
-        <a class="open-rsvp-form">Click here</a> to RSVP a different guest.
+      <a class="open-rsvp-form">Click here</a> to RSVP a different guest.
     </div>
   <?php endif; ?>
 </div>

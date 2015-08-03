@@ -3,14 +3,8 @@
  */
 $degreesText: -15deg;
 $degreesArrow: -30deg;
+$degreesArrowMobile: -75deg;
 $degreesInput: 3deg;
-
-/**
- * Section background image.
- */
-#rsvp:after {
-  background-image: url('../images/wood2.jpg');
-}
 
 /**
  * Specific content decoration.
@@ -46,12 +40,23 @@ $degreesInput: 3deg;
  */
 #rsvp img {
   float: left;
-  padding-left: 100px;
-  width: 64px;
-  height: 64px;
+  margin-top: -1em;
+  padding-left: 4em;
+  width: 4em;
+  height: 4em;
   -ms-transform: rotate($degreesArrow); /* IE 9 */
   -webkit-transform: rotate($degreesArrow); /* Chrome, Safari, Opera */
   transform: rotate($degreesArrow);
+
+  /* Mobile overrides */
+  @media only screen and (max-width: 767px) {
+    -ms-transform: rotate($degreesArrowMobile) scaleX(-1); /* IE 9 */
+    -webkit-transform: rotate($degreesArrowMobile) scaleX(-1); /* Chrome, Safari, Opera */
+    transform: rotate($degreesArrowMobile) scaleX(-1);
+    position: absolute;
+    top: 0;
+    left: 180px;
+  }
 }
 
 /**
@@ -95,6 +100,13 @@ $degreesInput: 3deg;
   //transform: rotate($degreesInput);
   font-size: 1.5em;
   font-family: 'Indie Flower', cursive;
+
+  /* Mobile overrides */
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
 }
 
 /**
@@ -137,6 +149,10 @@ ul.ui-autocomplete li.ui-state-focus {
   width: 7em;
   margin-left: auto;
   margin-right: auto;
+  /* Mobile overrides */
+  @media only screen and (max-width: 767px) {
+    margin-top: 1em;
+  }
 }
 #rsvp .big-number-text {
   font-size: 0.75em;

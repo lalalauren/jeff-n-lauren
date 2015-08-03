@@ -11,12 +11,19 @@
 <div id="hotel-block">
   <div id="hotel-block-info">
     <div class="title">Hampton Inn & Conference Center</div>
+    <?php if (isMobile()): ?>
+      <div id="hotel-image">
+        <img src="images/hotel.jpg"/>
+      </div>
+    <?php endif; ?>
     <div id="hotel-address">1204 Berryville Ave., Winchester, VA 22601</div>
   </div>
 
-  <div id="hotel-image">
-    <img src="images/hotel.jpg"/>
-  </div>
+  <?php if (!isMobile()): ?>
+    <div id="hotel-image">
+      <img src="images/hotel.jpg"/>
+    </div>
+  <?php endif; ?>
 
   <div class="clearfix"></div>
 </div>
