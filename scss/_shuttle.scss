@@ -29,3 +29,34 @@ input#shuttle-name {
   font-size: 1em;
   text-decoration: underline;
 }
+
+/**
+ * Style the buttons.
+ **/
+#add-shuttle-guest {
+  float: left;
+}
+.delete-shuttle-guest {
+  font-size: 1.6em;
+}
+#add-shuttle-guest span {
+  font-size: 2.5em;
+}
+#submit-shuttle-form {
+  border: 0.1em solid #ffff99;
+  background-color: rgba(255, 255, 133, 0.4);
+  color: #001F5C;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 0.5em;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: 'Dosis', sans-serif;
+}
+
+/**
+ * Replacing <br/>s
+ */
+#old-shuttle-form-edit {
+  margin-top: 2em;
+}

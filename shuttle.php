@@ -15,8 +15,8 @@ $result = mysql_fetch_array($query);
     You have already requested a shuttle for
     <?php echo $count; ?>
     <?php if ($count == 1): ?>person<?php else: ?>people<?php endif; ?>
+    from this IP!
   </span>
-  from this IP!
   <div id="shuttle-form-old">
 
     <?php do { ?>
@@ -25,9 +25,7 @@ $result = mysql_fetch_array($query);
       </div>
     <?php } while ($result = mysql_fetch_array($query)); ?>
 
-    <br/>
-    <span><a id="edit-shuttle-form">Click here</a> to edit your shuttle form.</span>
-    <br/>
+    <div id="old-shuttle-form-edit"><a id="edit-shuttle-form">Click here</a> to edit your shuttle form.</div>
 
   </div>
 <?php endif; ?>

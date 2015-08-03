@@ -16,9 +16,16 @@ $(function() {
 
   var shuttleForm = $('<div id="shuttle-form"></div>');
   shuttleForm.append(shuttleGuest);
-  var addGuest = $('<button type="button" name="add-shuttle-guest">Add Guest</button>');
-  var submitForm = $('<button type="submit" name="submit-shuttle-form">Submit</button>');
-  shuttleForm.append('<br/><br/>').append(addGuest).append(submitForm);
+  var addGuest = $('<a class="shuttle-button" id="add-shuttle-guest"><span>+</span> Click to Add Guest...</a>');
+  var submitForm = $('<div class="shuttle-button" id="submit-shuttle-form">Submit</div>');
+  submitForm.hover(function() {
+    $(this).css('background-color', 'rgba(255, 255, 133, 0.7');
+    $(this).cursor('pointer');
+  }, function() {
+    $(this).css('background-color', 'rgba(255, 255, 133, 0.4');
+    $(this).css('cursor', 'default');
+  });
+  shuttleForm.append(addGuest).append('<div class="clearfix"></div>').append(submitForm);
 
   // On load, replace the existing classes with the form.
   $('#shuttle-form-original').replaceWith(shuttleForm.get());
@@ -36,15 +43,12 @@ $(function() {
   };
   // Bind any existing buttons so that when clicking on the Add Guest link, add 
   // an input.
-  $('button[name="add-shuttle-guest"]').click(window.addShuttleGuestHandler);
+  $('#add-shuttle-guest').click(window.addShuttleGuestHandler);
 
   // When clicking on the edit form button, convert all text to dropdowns.
   $('#edit-shuttle-form').click(function() {
     // Remove this text.
-    $(this).parent('span').remove();
-
-    // Add buttons to the bottom.
-    $('#shuttle-form').append(addGuest).append(submitForm);
+    $('#old-shuttle-form-edit').remove();
 
     // Replace all of the static shuttle direction text with dropdowns.
     $('.shuttle-guest-text').each(function() {
@@ -96,18 +100,17 @@ $(function() {
       $(this).append(deleteShuttleGuest);
     });
 
-    // Append the form buttons.
+    // Add the functionality to the form buttons.
     addGuest.bind("click", function(event) {
-      $(this).parent().children('button').remove();
       window.addShuttleGuestHandler(event);
     });
-    $("#shuttle-form-old").append(addGuest);
     submitForm.bind("click", function(event) {
-      $(this).parent().children('button').remove();
+      $(this).parent().children('.shuttle-button').remove();
       window.shuttleSubmit(event);
       $('#shuttle-already-registered').remove();
     });
-    $("#shuttle-form-old").append(submitForm);
+
+    $("#shuttle-form-old").append(addGuest).append('<div class="clearfix"></div>').append(submitForm);
   });
 
 });
